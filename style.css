@@ -1,0 +1,69 @@
+:root {
+    box-sizing: border-box;
+    user-select: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: wheat;
+    overflow: hidden;
+}
+#display{
+    height: 90%;
+    width: 100%;
+    box-shadow: 2px 2px 5px 5px black;
+    background-color: white;
+    background: url(./img/road.jpg) center/100% 100% no-repeat;
+}
+#fence {
+    height: 18%;
+    position: absolute; 
+    right: 30%;
+    top: 62%;
+    animation: move 3s none infinite;
+    /* border: 2px solid black; */
+}
+#character {
+    height: 20%;
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    /* border: 2px solid black; */
+}
+#score {
+    display: inline-block;
+    margin: 18px 0 10px 50px;
+    font-size: 30px;
+    font-weight: 800;
+    align-items: center;
+    vertical-align: middle;
+}
+@keyframes move {
+    from {right: -10%;}
+    to {right: 100%;}
+}
+@keyframes jump {
+    0% {
+        bottom: 20%;
+    }
+    50% {
+        bottom: 50%;
+    }
+    75% {
+        bottom: 45%;
+    }
+    100% {
+        bottom: 20%;
+    }
+}
+.jump {
+    animation: jump 2s;
+}
