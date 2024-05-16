@@ -21,26 +21,26 @@ html, body {
     background-color: white;
     background: url(./img/road.jpg) center/100% 100% no-repeat;
 }
-#fence {
+#pole {
     height: 18%;
     position: absolute; 
     right: 30%;
-    top: 62%;
+    top: 67%;
     animation: move 3s none infinite;
-    /* border: 2px solid black; */
 }
 #character {
     height: 20%;
     position: absolute;
-    bottom: 20%;
+    bottom: 15%;
     left: 10%;
     animation-duration: 1s;
     animation-timing-function: ease;
-    /* border: 2px solid black; */
 }
 #score {
     display: inline-block;
-    margin: 18px 0 10px 50px;
+    position: fixed;
+    top: 0;
+    margin: 18px 0 0 50px;
     font-size: 30px;
     font-weight: 800;
     align-items: center;
