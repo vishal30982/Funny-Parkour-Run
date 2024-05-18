@@ -1,7 +1,7 @@
 {
     "name": "Funny Parkour Run",
     "short_name": "Parkour Run",
-    "description": "this is a 'Funny Parkour Run' Online game. that is made for fun for making and gaming both. In This Game The Player has to Jump Over The Poles While Running. Player Can Use Up Arrow Key Or Space Bar To Jump Sprite And For Mobile Swipe Gesture Is Given.",
+    "description": "this is a 'Funny Parkour Run' Online game. that is made for fun for making and gaming both. In This Game The Player has to Jump Over The Poles While Running. Player Can Use Up Arrow Key Or Space Bar To Jump Sprite And For Mobile Swipe Gesture Is Given. How many times the player jump the score increase.",
     "icons": [
         {
             "src": "./img/favicons/android-icon-36x36.png",
