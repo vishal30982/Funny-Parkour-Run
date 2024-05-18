@@ -1,0 +1,31 @@
+{
+  "name": "funny-parkour-run",
+  "version": "1.0.0",
+  "description": "this is a 'Funny Parkour Run' Online game. that is made for fun for making and gaming both. In This Game The Player has to Jump Over The Poles While Running. Player Can Use Up Arrow Key Or Space Bar To Jump Sprite And For Mobile Swipe Gesture Is Given. How many times the player jump the score increase.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishal30982/Funny-Parkour-Run.git"
+  },
+  "keywords": [
+    "javascript",
+    "game",
+    "gamedev",
+    "game-development",
+    "javascript-game",
+    "parkour",
+    "funny-game",
+    "parkour-game",
+    "funny-coding",
+    "dino-game"
+  ],
+  "author": "Utkarsh Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishal30982/Funny-Parkour-Run/issues"
+  },
+  "homepage": "https://github.com/vishal30982/Funny-Parkour-Run#readme"
+}
