@@ -14,6 +14,26 @@ html, body {
     background-color: wheat;
     overflow: hidden;
 }
+#pause-btn {
+    margin: 1.2rem 0 0 10rem;
+    padding: 8px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+#resume-btn {
+    margin: 1.2rem 0 0 10rem;
+    padding: 8px 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(255, 217, 0);
+    color: black;
+    text-transform: uppercase;
+    font-size: 18px;
+}
 #display{
     height: 90%;
     width: 100%;

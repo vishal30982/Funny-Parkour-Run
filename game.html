@@ -31,6 +31,7 @@
     <meta name="msapplication-TileImage" content="./img/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ec9002">
     <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./style.css">
     <!-- fb & Whatsapp -->
     <!-- Site Name, Title, and Description to be displayed -->
     <meta property="og:site_name" content="Funny Parkour Run">
@@ -48,40 +49,14 @@
     <meta name="twitter:title" content="Funny Parkour Run" />
     <meta name="twitter:description" content="PLay this 'Funny Parkour Run' Online game. Play and have Fun. Win Score And Compete With Your Friends. this Game is made for fun for making and gaming both." />
     <meta name="twitter:image" content="https://vishal30982.github.io/Funny-Parkour-Run/img/social-media-share-img.jpg" />
-    <style>
-        :root {
-            box-sizing: border-box;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        html, body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            width: 100vw;
-            margin: 0;
-            padding: 0;
-            background-color: wheat;
-        }
-        #start-btn {
-            font-size: 50px;
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            background-color: #ec9002;
-            border: 0.2px solid black;
-            border-radius: 8%;
-        }
-        #start-btn:hover {
-            background-color: #d38003;
-            border: none;
-        }
-    </style>
 </head>
 <body>
-    <a id="start-btn" href="./game.html">Start</a>
+    <p id="score"><span>score:</span><span id="scoreCount">0</span></p>
+    <div id="display">
+        <img id="pole" src="./img/pole.png" alt="pole image">
+        <img id="character" src="./img/character.png" alt="Player">
+    </div>
+    <button id="pause-btn">pause</button>
+    <script src="./script.js"></script>
 </body>
 </html>
