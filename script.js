@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.msExitFullscreen();
     }
 
+    window.scrollTo(0, document.querySelector('body').scrollHeight);
     
     const char = document.querySelector('#character');
     const pole = document.querySelector('#pole');
@@ -42,17 +43,20 @@ document.addEventListener('DOMContentLoaded', () => {
     bgMusic.volume = 0.1;
 
     function jump() {
-        char.classList.add('jump');
-        jumpSound.play();
-        setTimeout(() => {
-            char.classList.remove('jump');
-            score.textContent = parseInt(score.textContent) + 1;
-            success.load();
-            success.play();
-        }, 1000);
+        if(char.style.animationPlayState != "paused") {
+            if(!char.classList.contains('jump')) {
+                char.classList.add('jump');
+                jumpSound.play();
+                setTimeout(() => {
+                    char.classList.remove('jump');
+                    score.textContent = parseInt(score.textContent) + 1;
+                    success.load();
+                    success.play();
+                }, 1000);
+            }
+        }
     }
-
-    pauseBtn.addEventListener('click', () => {
+    function pauseAndResume() {
         if(pauseBtn.id === 'pause-btn') {
             char.style.animationPlayState = "paused";
             pole.style.animationPlayState = "paused";
@@ -65,22 +69,29 @@ document.addEventListener('DOMContentLoaded', () => {
             char.style.animationPlayState = "running"
             pole.style.animationPlayState = "running";
         }
-    })
+    }
+    pauseBtn.addEventListener('click', pauseAndResume);
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 's') {
+            pauseAndResume();
+        }
+    });
+    
     document.addEventListener('keydown', (e) => {
         if (e.code === 'ArrowUp' || e.code === 'Space') {
             jump()
         }
-    })
+    });
 
     // swipe gesture
     document.addEventListener('touchstart', (event) => {
         touchStartY = event.changedTouches[0].screenY;
-    })
+    });
     document.addEventListener('touchend', (event) => {
         touchEndY = event.changedTouches[0].screenY;
         isSwiped()
-    })
+    });
 
     let intervalId;
 
@@ -99,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkCollision(char, pole)) {
             bgMusic.pause()
             bgMusic.currentTime = 0;
-            gameOverSound.play();
+            // gameOverSound.play();
             alert(`Oops! You hit the pole!\nYour Score: ${score.textContent}\n\nclick ok to restart`);
             location.reload();
             clearInterval(intervalId); // clear the interval so it no longer check if the collision is happening
