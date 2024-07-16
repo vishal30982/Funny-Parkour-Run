@@ -1,15 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Request fullscreen
-    if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-        document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
-        document.documentElement.webkitRequestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-        document.documentElement.msRequestFullscreen();
+    function launchFullScreen(element) {
+        if(element.requestFullScreen) {
+            element.requestFullScreen();
+        } else if(element.mozRequestFullScreen) { // Firefox
+            element.mozRequestFullScreen();
+        } else if(element.webkitRequestFullScreen) { // Chrome, Safari and Opera
+            element.webkitRequestFullScreen();
+        } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+            element.msRequestFullscreen();
+        }
     }
-  
+    document.addEventListener('click', () => launchFullScreen(document.documentElement))
+    document.addEventListener('keydown', () => launchFullScreen(document.documentElement))
     // Exit fullscreen
     if (document.exitFullscreen) {
         document.exitFullscreen();
@@ -27,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pole = document.querySelector('#pole');
     const score = document.querySelector('#score #scoreCount');
     const pauseBtn = document.querySelector('#pause-btn');
+    const dialog = document.querySelector('#game-over-modal');
+    const restartBtn = dialog.querySelector('#restart-btn');
     let touchStartY = 0;
     let touchEndY = 0;
     // swipe checking function
@@ -106,13 +110,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 rect1.top > rect2.bottom);
     }
 
+    restartBtn.onclick = () => {
+        dialog.close()
+        pauseAndResume();
+        score.textContent = 0;
+        bgMusic.play()
+        bgMusic.autoplay = true;
+        setTimeout(() => intervalId = setInterval(gameLoop, 50), 800)
+    }
+
     function gameLoop() {
         if (checkCollision(char, pole)) {
             bgMusic.pause()
             bgMusic.currentTime = 0;
-            // gameOverSound.play();
-            alert(`Oops! You hit the pole!\nYour Score: ${score.textContent}\n\nclick ok to restart`);
-            location.reload();
+            gameOverSound.play();
+            dialog.showModal();
+            pauseAndResume();
             clearInterval(intervalId); // clear the interval so it no longer check if the collision is happening
         }
     }
